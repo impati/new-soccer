@@ -1,5 +1,8 @@
-package com.example.soccer.domain.player
+package com.example.soccer.player.domain
 
+import lombok.Getter
+
+@Getter
 enum class Position(name: String) {
 
     GK("골기퍼"),

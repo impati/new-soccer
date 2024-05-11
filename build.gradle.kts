@@ -27,8 +27,13 @@ repositories {
 
 dependencies {
 
-    runtimeOnly ("com.h2database:h2")
-    runtimeOnly ("com.mysql:mysql-connector-j")
+    testImplementation("com.h2database:h2")
+    runtimeOnly("com.mysql:mysql-connector-j")
+
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
+
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
