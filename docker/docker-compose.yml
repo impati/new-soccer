@@ -1,6 +1,17 @@
 version: '3.1'
 
 services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "9090:8080"  # Jenkins 웹 인터페이스
+      - "50000:50000"  # Jenkins 에이전트 연결 포트
+    volumes:
+      - ./jenkins_home:/var/jenkins_home  # Jenkins 데이터 저장
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false  # 설치 마법사 비활성화
+    restart: unless-stopped
   mysql:
     image: mysql
     environment:

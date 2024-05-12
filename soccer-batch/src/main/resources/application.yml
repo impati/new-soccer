@@ -1,1 +1,15 @@
-spring.application.name=soccer-batch
+spring:
+  profiles:
+    include: domain
+
+---
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: impati
+    password: impati
+    url: jdbc:mysql://mysql:3306/soccer
+  config:
+    activate:
+      on-profile: batch-jenkins

@@ -40,4 +40,5 @@ out/
 .kotlin
 
 ### CUSTOM ###
-player.csv
+*.csv
+docker/jenkins_home/
