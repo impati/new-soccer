@@ -1,5 +1,6 @@
 package com.example.soccer.player.domain
 
+import com.example.soccer.team.domain.Team
 import jakarta.persistence.*
 import lombok.Getter
 
@@ -8,6 +9,10 @@ import lombok.Getter
 @Entity
 @Table(name = "players")
 class Player(
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id", nullable = true)
+    var team: Team? = null,
 
     var name: String,
 
