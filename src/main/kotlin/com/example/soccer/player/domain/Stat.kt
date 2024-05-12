@@ -1,4 +1,4 @@
-package com.example.soccer.domain.player
+package com.example.soccer.player.domain
 
 import jakarta.persistence.Embeddable
 

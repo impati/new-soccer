@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   mysql:
-    image: mysql:8.1
+    image: mysql
     environment:
       MYSQL_DATABASE: soccer      # 데이터베이스 이름
       MYSQL_USER: impati              # 데이터베이스 사용자
