@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+### CUSTOM ###
+player.csv

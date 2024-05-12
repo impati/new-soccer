@@ -14,3 +14,8 @@ spring:
     username: impati
     password: impati
     url: jdbc:mysql://localhost:3306/soccer
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
