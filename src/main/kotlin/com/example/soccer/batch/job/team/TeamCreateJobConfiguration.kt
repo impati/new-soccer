@@ -1,6 +1,7 @@
-package com.example.soccer.batch.job.player.create
+package com.example.soccer.batch.job.team
 
-import com.example.soccer.player.domain.Player
+import com.example.soccer.team.domain.League
+import com.example.soccer.team.domain.Team
 import jakarta.persistence.EntityManagerFactory
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
@@ -22,64 +23,65 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.PathResource
 import org.springframework.transaction.PlatformTransactionManager
 
-
 @Configuration
-@ConditionalOnProperty(value = ["spring.batch.job.names"], havingValue = "player_create")
-class PlayerCreateJobConfiguration {
+@ConditionalOnProperty(value = ["spring.batch.job.names"], havingValue = "team_create")
+class TeamCreateJobConfiguration {
 
     @Bean
-    fun playerCreateJob(
+    fun teamCreateJob(
         jobRepository: JobRepository,
         transactionManager: PlatformTransactionManager,
         entityManagerFactory: EntityManagerFactory
     ): Job {
-        return JobBuilder("player-create-job", jobRepository)
+        return JobBuilder("team-create-job", jobRepository)
             .incrementer(RunIdIncrementer())
-            .start(playerCreateStep(jobRepository, transactionManager, entityManagerFactory))
+            .start(teamCreateStep(jobRepository, transactionManager, entityManagerFactory))
             .build()
     }
 
     @Bean
-    fun playerCreateStep(
+    fun teamCreateStep(
         jobRepository: JobRepository,
         transactionManager: PlatformTransactionManager,
         entityManagerFactory: EntityManagerFactory
     ): Step {
-        return StepBuilder("player-create-step", jobRepository)
-            .chunk<InputPlayer, Player>(10, transactionManager)
-            .reader(playerReader(null))
-            .processor(playerProcessor())
-            .writer(playerWriter(entityManagerFactory))
+        return StepBuilder("team-create-step", jobRepository)
+            .chunk<InputTeam, Team>(10, transactionManager)
+            .reader(teamReader(null))
+            .processor(teamProcessor())
+            .writer(teamWriter(entityManagerFactory))
             .build()
     }
 
 
     @Bean
     @StepScope
-    fun playerReader(@Value("#{jobParameters['input']}") input: String?): FlatFileItemReader<InputPlayer> {
-        val fieldSetMapper = BeanWrapperFieldSetMapper<InputPlayer>().apply { setTargetType(InputPlayer::class.java) }
+    fun teamReader(@Value("#{jobParameters['input']}") input: String?): FlatFileItemReader<InputTeam> {
+        val fieldSetMapper = BeanWrapperFieldSetMapper<InputTeam>().apply { setTargetType(InputTeam::class.java) }
 
-        return FlatFileItemReaderBuilder<InputPlayer>()
-            .name("scvPlayerReader")
+        return FlatFileItemReaderBuilder<InputTeam>()
+            .name("scvTeamReader")
             .resource(PathResource(input!!))
             .delimited()
             .delimiter(",")
-            .names(*arrayOf("name", "position", "trait", "mainFoot"))
+            .names(*arrayOf("name", "league"))
             .fieldSetMapper(fieldSetMapper)
             .build()
     }
 
     @Bean
     @StepScope
-    fun playerProcessor(): ItemProcessor<in InputPlayer, out Player> {
-        return PlayerCreatorProcessor()
+    fun teamProcessor(): ItemProcessor<in InputTeam, out Team> {
+        return ItemProcessor<InputTeam, Team> {
+            Team(league = League.valueOf(it.league), name = it.name)
+        }
     }
 
 
     @Bean
     @StepScope
-    fun playerWriter(entityManagerFactory: EntityManagerFactory): ItemWriter<Player> {
-        val jpaItemWriter = JpaItemWriter<Player>()
+    fun teamWriter(entityManagerFactory: EntityManagerFactory): ItemWriter<Team> {
+        val jpaItemWriter = JpaItemWriter<Team>()
         jpaItemWriter.setEntityManagerFactory(entityManagerFactory)
         return jpaItemWriter
     }

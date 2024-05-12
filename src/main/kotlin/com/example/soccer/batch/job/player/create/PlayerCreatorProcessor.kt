@@ -9,11 +9,11 @@ class PlayerCreatorProcessor : ItemProcessor<InputPlayer, Player> {
         val trait = item.trait.split(":").toList().map { Trait.valueOf(it) }.toSet()
 
         return Player(
-            item.name,
-            positions,
-            Stat(),
-            trait,
-            MainFoot.valueOf(item.mainFoot)
+            name = item.name,
+            position = positions,
+            stat = Stat(),
+            trait = trait,
+            mainFoot = MainFoot.valueOf(item.mainFoot)
         )
     }
 }

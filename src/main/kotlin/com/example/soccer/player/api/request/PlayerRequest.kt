@@ -13,11 +13,11 @@ data class PlayerRequest(
 
     fun toEntity(): Player {
         return Player(
-            name,
-            position,
-            stat,
-            trait,
-            mainFoot
+            name = name,
+            position = position,
+            stat = stat,
+            trait = trait,
+            mainFoot = mainFoot
         )
     }
 }

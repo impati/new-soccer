@@ -1,6 +1,7 @@
-package com.example.soccer.batch.job.player.create
+package com.example.soccer.batch.job.team
 
-import com.example.soccer.player.domain.PlayerRepository
+import com.example.soccer.team.domain.League
+import com.example.soccer.team.domain.TeamRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.batch.core.BatchStatus
@@ -10,16 +11,16 @@ import org.springframework.batch.test.context.SpringBatchTest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest(properties = ["spring.batch.job.names=player_create"])
+@SpringBootTest(properties = ["spring.batch.job.names=team_create"])
 @SpringBatchTest
-class PlayerCreateJobConfigurationTest @Autowired constructor(
+class TeamCreateJobConfigurationTest @Autowired constructor(
     val jobLauncherTestUtils: JobLauncherTestUtils,
-    val playerRepository: PlayerRepository
+    val teamRepository: TeamRepository
 ) {
 
     @Test
-    fun playerCreateJob() {
-        val path = "src/test/resources/player.csv"
+    fun teamCreateJob() {
+        val path = "src/test/resources/team.csv"
         val jobParameters = JobParametersBuilder()
             .addString("input", path)
             .toJobParameters()
@@ -27,6 +28,10 @@ class PlayerCreateJobConfigurationTest @Autowired constructor(
         val jobExecution = jobLauncherTestUtils.launchJob(jobParameters)
 
         assertThat(jobExecution.status).isEqualTo(BatchStatus.COMPLETED)
-        assertThat(playerRepository.count()).isEqualTo(2)
+        assertThat(teamRepository.count()).isEqualTo(90)
+
+        League.entries
+            .map { teamRepository.findTeamByLeague(it) }
+            .forEach { assertThat(it.size).isEqualTo(18) }
     }
 }
