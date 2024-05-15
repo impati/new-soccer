@@ -24,7 +24,7 @@ pipeline {
         stage('Archive') {
             steps {
                 // 빌드된 .jar 파일을 Jenkins 아티팩트로 저장
-                archiveArtifacts artifacts: 'soccer-batch-0.0.1-SNAPSHOT.jar', fingerprint: true
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
     }
