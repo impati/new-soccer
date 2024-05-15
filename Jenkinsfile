@@ -27,13 +27,6 @@ pipeline {
                 archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
             }
         }
-
-        stage('Execute Jar') {
-            steps {
-                // 빌드된 .jar 파일을 실행
-                sh 'java -jar **/build/libs/*.jar'
-            }
-        }
     }
 
     post {
