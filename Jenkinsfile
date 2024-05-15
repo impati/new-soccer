@@ -16,6 +16,8 @@ pipeline {
 
         stage('Build') {
             steps {
+                // Maven 버전 출력 (디버깅용)
+                sh "${MAVEN_HOME}/bin/mvn -version"
                 // Maven 빌드 명령 실행
                 sh "${MAVEN_HOME}/bin/mvn clean package"
             }
