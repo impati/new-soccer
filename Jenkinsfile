@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        // Maven 설치 경로 지정
-        MAVEN_HOME = tool name: 'Maven', type: 'hudson.tasks.Maven$MavenInstallation'
+        // Gradle 설치 경로 지정 (사전 정의된 Gradle 설치 사용)
+        GRADLE_HOME = tool name: 'Gradle', type: 'hudson.plugins.gradle.GradleInstallation'
     }
 
     stages {
@@ -16,27 +16,32 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Maven 버전 출력 (디버깅용)
-                sh "${MAVEN_HOME}/bin/mvn -version"
-                // Maven 빌드 명령 실행
-                sh "${MAVEN_HOME}/bin/mvn clean package"
+                // Gradle 빌드 명령 실행
+                sh "${GRADLE_HOME}/bin/gradle clean build"
             }
         }
 
         stage('Archive') {
             steps {
                 // 빌드된 .jar 파일을 Jenkins 아티팩트로 저장
-                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
+            }
+        }
+
+        stage('Execute Jar') {
+            steps {
+                // 빌드된 .jar 파일을 실행
+                sh 'java -jar **/build/libs/*.jar'
             }
         }
     }
 
     post {
         success {
-            echo 'Build succeeded!'
+            echo 'Build and execution succeeded!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Build or execution failed!'
         }
     }
 }
