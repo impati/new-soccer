@@ -40,5 +40,4 @@ out/
 .kotlin
 
 ### CUSTOM ###
-*.csv
 docker/jenkins_home/
