@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Gradle 빌드 명령 실행
-                sh "${GRADLE_HOME}/bin/gradle clean build"
+                sh "${GRADLE_HOME}/bin/gradle :soccer-batch:build"
             }
         }
 
