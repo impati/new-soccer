@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        jdk 'JDK 17'
+    }
+
     environment {
         // Gradle 설치 경로 지정 (사전 정의된 Gradle 설치 사용)
         GRADLE_HOME = tool name: 'Gradle', type: 'hudson.plugins.gradle.GradleInstallation'
