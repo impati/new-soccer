@@ -66,6 +66,7 @@ class PlayerCreateJobConfiguration(
         return FlatFileItemReaderBuilder<InputPlayer>()
             .name("scvPlayerReader")
             .resource(ByteArrayResource(downloadByteArray))
+            .strict(false)
             .delimited()
             .delimiter(",")
             .names(*arrayOf("name", "position", "trait", "mainFoot"))

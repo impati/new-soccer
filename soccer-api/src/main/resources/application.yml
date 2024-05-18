@@ -1,3 +1,10 @@
 spring:
   profiles:
     include: domain
+
+
+jenkins:
+  token: ${jenkins_token}
+  url: ${jenkins_url}
+  user: ${jenkins_user}
+
