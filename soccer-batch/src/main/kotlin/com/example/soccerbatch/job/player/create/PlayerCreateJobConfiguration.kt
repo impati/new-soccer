@@ -5,6 +5,7 @@ import com.example.soccerdomain.player.domain.Player
 import jakarta.persistence.EntityManagerFactory
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
+import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.support.RunIdIncrementer
@@ -43,6 +44,7 @@ class PlayerCreateJobConfiguration(
     }
 
     @Bean
+    @JobScope
     fun playerCreateStep(
         jobRepository: JobRepository,
         transactionManager: PlatformTransactionManager,

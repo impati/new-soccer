@@ -1,10 +1,12 @@
 package com.example.soccerbatch.job.team
 
+import com.example.soccerdomain.common.FileService
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
 import jakarta.persistence.EntityManagerFactory
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.Step
+import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.batch.core.configuration.annotation.StepScope
 import org.springframework.batch.core.job.builder.JobBuilder
 import org.springframework.batch.core.launch.support.RunIdIncrementer
@@ -20,12 +22,14 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.core.io.PathResource
+import org.springframework.core.io.ByteArrayResource
 import org.springframework.transaction.PlatformTransactionManager
 
 @Configuration
 @ConditionalOnProperty(value = ["spring.batch.job.names"], havingValue = "team_create")
-class TeamCreateJobConfiguration {
+class TeamCreateJobConfiguration(
+    val fileService: FileService
+) {
 
     @Bean
     fun teamCreateJob(
@@ -40,6 +44,7 @@ class TeamCreateJobConfiguration {
     }
 
     @Bean
+    @JobScope
     fun teamCreateStep(
         jobRepository: JobRepository,
         transactionManager: PlatformTransactionManager,
@@ -53,15 +58,16 @@ class TeamCreateJobConfiguration {
             .build()
     }
 
-
     @Bean
     @StepScope
     fun teamReader(@Value("#{jobParameters['input']}") input: String?): FlatFileItemReader<InputTeam> {
         val fieldSetMapper = BeanWrapperFieldSetMapper<InputTeam>().apply { setTargetType(InputTeam::class.java) }
+        val downloadByteArray = fileService.downloadFile(input!!);
 
         return FlatFileItemReaderBuilder<InputTeam>()
             .name("scvTeamReader")
-            .resource(PathResource(input!!))
+            .resource(ByteArrayResource(downloadByteArray))
+            .strict(false)
             .delimited()
             .delimiter(",")
             .names(*arrayOf("name", "league"))

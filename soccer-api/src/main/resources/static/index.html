@@ -6,10 +6,21 @@
   <title>File Upload to AWS S3</title>
 </head>
 <body>
-<h1>Upload File to S3</h1>
+
+
+<h1>선수 등록</h1>
 <form action="/player/create/upload" method="post" enctype="multipart/form-data">
   <input type="file" name="file" required>
   <button type="submit">Upload</button>
 </form>
+
+
+<h1>팀 등록</h1>
+<form action="/team/create/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" required>
+  <button type="submit">Upload</button>
+</form>
+
+
 </body>
 </html>
