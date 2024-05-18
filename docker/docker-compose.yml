@@ -9,8 +9,6 @@ services:
       - "50000:50000"  # Jenkins 에이전트 연결 포트
     volumes:
       - ./jenkins_home:/var/jenkins_home  # Jenkins 데이터 저장
-    environment:
-      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false  # 설치 마법사 비활성화
     restart: unless-stopped
   mysql:
     image: mysql

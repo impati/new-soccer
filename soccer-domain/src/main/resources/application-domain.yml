@@ -14,3 +14,11 @@ spring:
     username: impati
     password: impati
     url: jdbc:mysql://localhost:3306/soccer
+
+aws:
+  s3:
+    region: ${REGION}
+    bucket-name: ${BUCKET}
+    directory: ${DIRECTORY}
+    accessKey: ${ACCESS_KEY}
+    secretKey: ${SECRET_KEY}

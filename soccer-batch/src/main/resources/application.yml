@@ -13,3 +13,6 @@ spring:
   config:
     activate:
       on-profile: batch-jenkins
+  batch:
+    jdbc:
+      initialize-schema: always
