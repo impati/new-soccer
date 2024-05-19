@@ -4,6 +4,7 @@ dependencies {
 
     implementation(project(":soccer-domain"))
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4")
 }
 

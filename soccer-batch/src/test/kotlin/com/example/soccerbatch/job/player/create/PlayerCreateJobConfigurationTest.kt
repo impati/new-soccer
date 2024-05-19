@@ -1,7 +1,7 @@
 package com.example.soccerbatch.job.player.create
 
 import com.example.soccerdomain.player.domain.PlayerRepository
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.batch.core.BatchStatus
 import org.springframework.batch.core.JobParametersBuilder
@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest
 @SpringBatchTest
 class PlayerCreateJobConfigurationTest @Autowired constructor(
     val jobLauncherTestUtils: JobLauncherTestUtils,
-    val playerRepository: PlayerRepository
+    val playerRepository: PlayerRepository,
 ) {
 
     @Test
@@ -26,7 +26,7 @@ class PlayerCreateJobConfigurationTest @Autowired constructor(
 
         val jobExecution = jobLauncherTestUtils.launchJob(jobParameters)
 
-        assertThat(jobExecution.status).isEqualTo(BatchStatus.COMPLETED)
-        assertThat(playerRepository.count()).isEqualTo(2)
+        Assertions.assertThat(jobExecution.status).isEqualTo(BatchStatus.COMPLETED)
+        Assertions.assertThat(playerRepository.count()).isEqualTo(2)
     }
 }

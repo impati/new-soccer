@@ -1,1 +1,27 @@
-spring.application.name=soccer-batch
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: impati
+    password: impati
+    url: jdbc:mysql://mysql:3306/soccer
+  batch:
+    jdbc:
+      initialize-schema: always
+
+aws:
+  s3:
+    region: ${REGION}
+    bucket-name: ${BUCKET}
+    directory: ${DIRECTORY}
+    accessKey: ${ACCESS_KEY}
+    secretKey: ${SECRET_KEY}

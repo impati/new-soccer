@@ -14,3 +14,14 @@ spring:
   batch:
     jdbc:
       initialize-schema: embedded
+aws:
+  s3:
+    region: region
+    bucket-name: bucket
+    directory: dir
+    accessKey: access
+    secretKey: secret
+jenkins:
+  token: token
+  url: url
+  user: user
