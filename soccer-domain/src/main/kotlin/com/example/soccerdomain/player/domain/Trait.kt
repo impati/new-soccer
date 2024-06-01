@@ -6,5 +6,7 @@ import lombok.Getter
 enum class Trait {
 
     PASS_MASTER,
-    HEADER
+    HEADER,
+    MAJOR,
+    MINOR
 }
