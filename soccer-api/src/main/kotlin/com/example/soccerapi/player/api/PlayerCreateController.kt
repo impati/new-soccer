@@ -16,9 +16,9 @@ class PlayerCreateController(
 
     @PostMapping("/player/create/upload")
     fun uploadFile(@RequestParam("file") file: MultipartFile): ResponseEntity<Any> {
-        val uploadFileName = fileService.uploadFile(file.originalFilename!!, file.inputStream, file.size)
+        fileService.uploadFile(file.originalFilename!!, file.inputStream, file.size)
 
-        jenkinsTrigger.runBatch("player_create", mapOf(Pair("input", uploadFileName)))
+        jenkinsTrigger.runBatch("player_create", mapOf(Pair("input", file.originalFilename!!)))
 
         return ResponseEntity.ok().build()
     }
