@@ -1,6 +1,7 @@
 package com.example.soccerapi.player.api
 
 import com.example.soccerapi.player.api.request.PlayerRequest
+import com.example.soccerapi.player.api.request.PlayerSearchRequest
 import com.example.soccerapi.player.api.response.PlayerResponse
 import com.example.soccerapi.player.application.PlayerFacade
 import org.springframework.web.bind.annotation.*
@@ -31,4 +32,8 @@ class PlayerController(
         return playerFacade.get(playerId)
     }
 
+    @GetMapping
+    fun search(@ModelAttribute request: PlayerSearchRequest): List<PlayerResponse> {
+        return playerFacade.search(request)
+    }
 }

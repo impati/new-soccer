@@ -1,6 +1,7 @@
 package com.example.soccerapi.player.application
 
 import com.example.soccerapi.player.api.request.PlayerRequest
+import com.example.soccerapi.player.api.request.PlayerSearchRequest
 import com.example.soccerapi.player.api.response.PlayerResponse
 import com.example.soccerdomain.player.domain.PlayerRepository
 import org.springframework.stereotype.Service
@@ -36,5 +37,11 @@ class PlayerFacade(
 
     fun delete(playerId: Long) {
         playerRepository.deleteById(playerId)
+    }
+
+    fun search(request: PlayerSearchRequest): List<PlayerResponse> {
+        return playerRepository.search(request.toInput())
+            .map { PlayerResponse.from(it) }
+            .toList()
     }
 }
