@@ -14,7 +14,7 @@ data class PlayerSearchRequest(
     val teamName: String? = "",
     val rating: NumberSearchRequest? = null,
     val mainFoot: List<MainFoot>?,
-    val trait: List<Trait>?,
+    val traits: List<Trait>?,
     val position: Position? = null
 ) {
     fun toInput(): PlayerSearchInput {
@@ -23,7 +23,7 @@ data class PlayerSearchRequest(
             teamName = teamName,
             rating = rating?.toInput(),
             mainFoot = mainFoot,
-            trait = trait,
+            traits = traits,
             position = position
         )
     }
