@@ -10,6 +10,6 @@ data class PlayerSearchInput(
     val teamName: String? = "",
     val rating: NumberSearchInput? = null,
     val mainFoot: List<MainFoot>? = listOf(),
-    val trait: List<Trait>? = listOf(),
+    val traits: List<Trait>? = listOf(),
     val position: Position? = null
 )

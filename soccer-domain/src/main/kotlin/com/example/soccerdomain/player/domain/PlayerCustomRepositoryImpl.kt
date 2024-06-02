@@ -24,7 +24,7 @@ class PlayerCustomRepositoryImpl(private val queryFactory: JPAQueryFactory) : Pl
                 operatorRating(playerSearchInput.rating),
                 containFoot(playerSearchInput.mainFoot),
                 eqPosition(playerSearchInput.position),
-                anyMatchTrait(playerSearchInput.trait)
+                anyMatchTrait(playerSearchInput.traits)
             )
             .orderBy(orderByRating(playerSearchInput.rating))
             .fetch()
