@@ -97,7 +97,7 @@ export default {
   methods: {
     async fetchPlayerData() {
       try {
-        const response = await axios.get(`http://localhost:8080/player/${this.playerId}`);
+        const response = await axios.get(`http://localhost:8080/players/${this.playerId}`);
         this.player = response.data;
       } catch (error) {
         console.error('선수 데이터를 가져오는 중 오류 발생:', error);

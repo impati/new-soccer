@@ -180,7 +180,7 @@ export default {
       }
 
       try {
-        const response = await axios.get(`http://localhost:8080/player?${params.toString()}`);
+        const response = await axios.get(`http://localhost:8080/players?${params.toString()}`);
         this.players = response.data;  // 서버로부터 받은 데이터를 players 배열에 저장
       } catch (error) {
         console.error('Error fetching players:', error);
