@@ -26,7 +26,7 @@ class TeamFacadeTest @Autowired constructor(
             Player(
                 name = "player1",
                 position = setOf(Position.CAM, Position.CDM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
