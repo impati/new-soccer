@@ -187,7 +187,7 @@ export default {
       }
     },
     redirectToPlayerDetails(playerId) {
-      this.$router.push({name: 'PlayerDetails', params: {id: playerId}});
+      this.$router.push({name: 'PlayerDetails', params: {playerId: playerId}});
     }
   }
 }

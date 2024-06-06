@@ -15,8 +15,9 @@ const routes = [
     component: PlayerSearch
   },
   {
-    path: '/player/:id',
+    path: '/player/:playerId',
     name: 'PlayerDetails',
+    props: route => ({playerId: Number(route.params.playerId)}),
     component: PlayerDetails
   },
 ]
