@@ -7,7 +7,7 @@ import com.example.soccerapi.player.application.PlayerFacade
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/player")
+@RequestMapping("/players")
 class PlayerController(
     val playerFacade: PlayerFacade
 ) {

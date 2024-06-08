@@ -35,7 +35,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         val player = Player(
             name = "tester",
             position = setOf(Position.CAM),
-            stat = Stat(),
+            stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
             trait = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
@@ -51,7 +51,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         val player = Player(
             name = "tester",
             position = setOf(Position.CAM),
-            stat = Stat(),
+            stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
             trait = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
@@ -68,7 +68,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         val player = Player(
             name = "tester",
             position = setOf(Position.CAM),
-            stat = Stat(),
+            stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
             trait = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
@@ -93,7 +93,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
@@ -103,7 +103,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1500)
@@ -113,7 +113,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(2000)
@@ -143,7 +143,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
@@ -166,7 +166,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
@@ -189,7 +189,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             Player(
                 name = "tester",
                 position = setOf(Position.CAM),
-                stat = Stat(),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
                 trait = setOf(Trait.HEADER, Trait.PASS_MASTER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
@@ -198,7 +198,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
 
         val response = playerRepository.search(
             PlayerSearchInput(
-                trait = listOf(Trait.HEADER, Trait.MAJOR)
+                traits = listOf(Trait.HEADER, Trait.MAJOR)
             )
         )
 
