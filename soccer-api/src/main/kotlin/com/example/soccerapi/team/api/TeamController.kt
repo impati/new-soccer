@@ -1,8 +1,8 @@
 package com.example.soccerapi.team.api
 
 import com.example.soccerapi.team.api.request.ScoutRequest
+import com.example.soccerapi.team.api.response.TeamResponse
 import com.example.soccerapi.team.application.TeamFacade
-import com.example.soccerdomain.team.domain.League
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -21,12 +21,7 @@ class TeamController(
     }
 
     @GetMapping("/{teamId}")
-    fun getTeam(@PathVariable teamId: Long) {
-        teamFacade.getTeam(teamId)
-    }
-
-    @GetMapping("/{league}")
-    fun getTeams(@PathVariable league: League) {
-        teamFacade.getTeams(league)
+    fun getTeam(@PathVariable teamId: Long): TeamResponse {
+        return teamFacade.getTeam(teamId)
     }
 }
