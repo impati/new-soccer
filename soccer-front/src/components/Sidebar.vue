@@ -5,9 +5,10 @@
       <span class="fs-4">Sidebar</span>
     </router-link>
     <hr>
+
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link text-white active" @click="togglePlayerManagement">
+        <a href="#" class="nav-link text-white" @click="togglePlayerManagement">
           <i class="bi bi-house-door-fill me-2"></i>
           선수 관리
         </a>
@@ -18,6 +19,7 @@
               선수 검색
             </router-link>
           </li>
+
           <li class="nav-item">
             <router-link to="/player-register" class="nav-link text-white">
               <i class="bi bi-plus-square-fill me-2"></i>
@@ -26,7 +28,23 @@
           </li>
         </ul>
       </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link text-white" @click="toggleLeague">
+          <i class="bi bi-house-door-fill me-2"></i>
+          리그
+        </a>
+        <ul v-if="isLeague" class="nav flex-column ms-3">
+          <li v-for="league in leagues" :key="league" class="nav-item">
+            <router-link :to="`/${league.name}`" class="nav-link text-white">
+              <i class="bi bi-plus-square me-2"></i>
+              {{ league.leagueName }}
+            </router-link>
+          </li>
+        </ul>
+      </li>
     </ul>
+
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
@@ -47,17 +65,34 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'AppSidebar',
   data() {
     return {
       isPlayerManagementOpen: false,
+      isLeague: false,
+      leagues: []
     }
   },
   methods: {
     togglePlayerManagement() {
       this.isPlayerManagementOpen = !this.isPlayerManagementOpen;
+    },
+
+    toggleLeague() {
+      this.isLeague = !this.isLeague;
     }
+  },
+  mounted() {
+    axios.get('http://localhost:8080/leagues')
+    .then(response => {
+      this.leagues = response.data;
+    })
+    .catch(error => {
+      console.error('There was an error fetching the leagues:', error);
+    });
   }
 }
 </script>
@@ -69,5 +104,9 @@ export default {
 
 .nav-pills .nav-link {
   cursor: pointer;
+}
+
+.nav-link.active {
+  background-color: #0d6efd; /* Change this to your desired active color */
 }
 </style>
