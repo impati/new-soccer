@@ -1,9 +1,6 @@
 package com.example.soccerdomain.team.domain
 
-import lombok.Getter
-
-@Getter
-enum class League(name: String) {
+enum class League(val leagueName: String) {
 
     LALIGA("라리가"),
     BUNDESLIGA("분데스리가"),
