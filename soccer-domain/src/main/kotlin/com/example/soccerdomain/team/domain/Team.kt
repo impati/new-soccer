@@ -25,7 +25,7 @@ class Team(
     val id: Long? = null
 ) {
 
-    fun hiring(players: List<Player>) {
+    fun scout(players: List<Player>) {
         for (player in players) {
             player.join(this)
             this.player.add(player)

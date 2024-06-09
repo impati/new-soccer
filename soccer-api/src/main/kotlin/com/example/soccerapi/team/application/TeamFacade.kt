@@ -17,10 +17,9 @@ class TeamFacade(
 
     fun scout(teamId: Long, request: ScoutRequest) {
         val team = teamRepository.findById(teamId).orElseThrow()
+        val players = playerRepository.findPlayerByIdIn(request.playerIds)
 
-        val players = playerRepository.findPlayerByIdIn(request.productIds)
-
-        team.hiring(players)
+        team.scout(players)
     }
 
     fun getTeam(teamId: Long): TeamResponse {
