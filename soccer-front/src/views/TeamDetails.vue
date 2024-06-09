@@ -65,6 +65,9 @@ export default {
     this.fetchTeamData();
   },
   methods: {
+    redirectToPlayerDetails(playerId) {
+      this.$router.push({name: 'PlayerDetails', params: {playerId: playerId}});
+    },
     async fetchTeamData() {
       try {
         const response = await axios.get(`http://localhost:8080/teams/${this.teamId}`);
