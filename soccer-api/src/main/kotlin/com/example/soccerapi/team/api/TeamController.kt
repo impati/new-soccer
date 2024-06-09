@@ -1,5 +1,6 @@
 package com.example.soccerapi.team.api
 
+import com.example.soccerapi.team.api.request.FormationRequest
 import com.example.soccerapi.team.api.request.ScoutRequest
 import com.example.soccerapi.team.api.response.TeamResponse
 import com.example.soccerapi.team.application.TeamFacade
@@ -23,5 +24,10 @@ class TeamController(
     @GetMapping("/{teamId}")
     fun getTeam(@PathVariable teamId: Long): TeamResponse {
         return teamFacade.getTeam(teamId)
+    }
+
+    @PostMapping("/{teamId}/formation")
+    fun createFormation(@PathVariable teamId: Long, @RequestBody request: FormationRequest) {
+        teamFacade.createFormation(teamId, request)
     }
 }

@@ -21,5 +21,5 @@ class FormationElement(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "formation_element_id")
-    var id: Long?
+    var id: Long? = null
 )

@@ -17,8 +17,16 @@ class Formation(
     @JoinColumn(name = "team_id")
     val team: Team,
 
+    @OneToMany(mappedBy = "formation", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val formationElements: MutableList<FormationElement> = mutableListOf(),
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "formation_id")
-    var id: Long?
-)
+    var id: Long? = null
+) {
+
+    fun addFormationElement(formationElement: FormationElement) {
+        this.formationElements.add(formationElement)
+    }
+}
