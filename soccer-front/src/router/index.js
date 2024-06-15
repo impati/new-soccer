@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import PlayerSearch from '../views/PlayerSearch.vue'
 import PlayerDetails from "../views/PlayerDetails.vue"
 import League from "../views/League.vue";
+import TeamDetails from "@/views/TeamDetails.vue";
 
 const routes = [
 
@@ -19,7 +20,7 @@ const routes = [
   },
 
   {
-    path: '/player/:playerId',
+    path: '/players/:playerId',
     name: 'PlayerDetails',
     props: route => ({playerId: Number(route.params.playerId)}),
     component: PlayerDetails
@@ -30,6 +31,13 @@ const routes = [
     name: 'LeaguePage',
     props: route => ({league: String(route.params.league)}),
     component: League
+  },
+
+  {
+    path: '/teams/:teamId',
+    name: "TeamDetails",
+    props: route => ({teamId: Number(route.params.teamId)}),
+    component: TeamDetails
   },
 
 ]

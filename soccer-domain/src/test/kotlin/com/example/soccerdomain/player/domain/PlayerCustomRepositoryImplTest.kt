@@ -76,7 +76,7 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
             league = League.LEAGUE_1,
             name = "teamOne"
         )
-        team.hiring(listOf(player))
+        team.scout(listOf(player))
         teamRepository.save(team)
         playerRepository.save(player)
 

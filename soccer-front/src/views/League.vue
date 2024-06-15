@@ -16,7 +16,9 @@
           <tbody>
           <tr v-for="(team, index) in sortedTeams" :key="team.name">
             <td>{{ index + 1 }}</td>
-            <td>{{ team.name }}</td>
+            <td>
+              <a @click.prevent="redirectToTeamDetails(team.teamId)" class="team-link">{{ team.name }}</a>
+            </td>
             <td>{{ team.rating }}</td>
           </tr>
           </tbody>
@@ -49,6 +51,9 @@ export default {
     },
   },
   methods: {
+    redirectToTeamDetails(teamId) {
+      this.$router.push({name: 'TeamDetails', params: {teamId: teamId}});
+    },
     fetchLeagueData() {
       axios.get(`http://localhost:8080/leagues/${this.league}`)
       .then(response => {
