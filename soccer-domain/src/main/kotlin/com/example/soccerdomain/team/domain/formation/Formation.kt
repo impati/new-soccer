@@ -29,4 +29,12 @@ class Formation(
     fun addFormationElement(formationElement: FormationElement) {
         this.formationElements.add(formationElement)
     }
+
+    fun clearFormationElement() {
+        this.formationElements.clear()
+    }
+
+    fun editFormationName(name: String) {
+        this.formationName = name;
+    }
 }

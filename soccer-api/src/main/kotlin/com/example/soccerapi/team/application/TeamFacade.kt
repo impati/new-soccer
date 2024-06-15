@@ -49,4 +49,28 @@ class TeamFacade(
 
         return FormationResponse.from(formationRepository.save(formation))
     }
+
+    fun getFormations(teamId: Long): List<FormationResponse> {
+        val team = teamRepository.findById(teamId).orElseThrow()
+
+        return formationRepository.findByTeam(team).map { FormationResponse.from(it) }
+    }
+
+    fun editFormation(formationId: Long, request: FormationRequest): FormationResponse {
+        val formation = formationRepository.findById(formationId).orElseThrow()
+
+        formation.editFormationName(request.name)
+        formation.clearFormationElement()
+
+        for (element in request.elements) {
+            val player = playerRepository.findById(element.playerId).orElseThrow()
+            formation.addFormationElement(FormationElement(element.position, player, formation))
+        }
+
+        return FormationResponse.from(formationRepository.save(formation))
+    }
+
+    fun deleteFormation(formationId: Long) {
+        formationRepository.deleteById(formationId)
+    }
 }
