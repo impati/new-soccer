@@ -8,5 +8,11 @@ enum class Trait {
     PASS_MASTER,
     HEADER,
     MAJOR,
-    MINOR
+    MINOR,
+    DRIBBLE,
+    KICK,
+    CROSS,
+    WALL,
+    SPEED,
+    HEADING
 }

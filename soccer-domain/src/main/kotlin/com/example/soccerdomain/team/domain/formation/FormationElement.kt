@@ -8,9 +8,11 @@ import jakarta.persistence.*
 @Table(name = "formation_elements")
 class FormationElement(
 
+    @Column(name = "position")
+    @Enumerated(EnumType.STRING)
     var position: Position,
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "player_id")
     var player: Player,
 
