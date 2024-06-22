@@ -99,6 +99,7 @@
                 <th>특성</th>
                 <th>주발</th>
                 <th>레이팅</th>
+                <th>영입</th>
               </tr>
               </thead>
               <tbody>
@@ -110,12 +111,52 @@
                 <td>{{ player.trait.join(', ') }}</td>
                 <td>{{ player.mainFoot }}</td>
                 <td>{{ player.rating }}</td>
+                <td>
+                  <button @click="openRecruitModal(player)" class="btn btn-success btn-sm">영입</button>
+                </td>
               </tr>
               </tbody>
             </table>
           </div>
         </div>
 
+        <!-- Recruit Modal -->
+        <div v-if="showModal" class="modal" tabindex="-1" role="dialog" style="display: block;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">선수 영입</h5>
+                <button type="button" class="btn-close" @click="closeModal"></button>
+              </div>
+              <div class="modal-body">
+
+                <div class="form-group">
+                  <label for="leagueSelect">리그를 선택해주세요:</label>
+                  <select v-model="selectedLeague" class="form-control" id="leagueSelect" @change="fetchTeams">
+                    <option v-for="league in leagues" :key="league.name" :value="league.name">{{
+                        league.leagueName
+                      }}
+                    </option>
+                  </select>
+                </div>
+
+                <div v-if="selectedLeague" class="form-group mt-3">
+                  <label for="teamSelect">팀을 선택하세요:</label>
+                  <select v-model="selectedTeam" class="form-control" id="teamSelect">
+                    <option v-for="team in teams" :key="team.teamId" :value="team">{{ team.name }}</option>
+                  </select>
+                </div>
+                <p v-if="selectedTeam" class="mt-3">
+                  {{ selectedPlayer.name }} 선수를 {{ selectedTeam.name }} 팀으로 영입하시겠습니까?
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @click="closeModal">닫기</button>
+                <button type="button" class="btn btn-primary" @click="recruitPlayer">영입</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -143,6 +184,11 @@ export default {
       },
       players: [],  // 검색 결과를 저장할 배열
       selectedPlayer: null,  // 선택된 선수 정보를 저장할 객체
+      leagues: [], // 리그 목록을 저장할 배열
+      teams: [], // 팀 목록을 저장할 배열
+      selectedLeague: '', // 선택된 리그
+      selectedTeam: '', // 선택된 팀
+      showModal: false, // 모달 표시 여부
       traitsOptions: [
         {value: 'PASS_MASTER', label: 'PASS_MASTER'},
         {value: 'HEADER', label: 'HEADER'},
@@ -178,12 +224,54 @@ export default {
       if (this.searchCriteria.rating.orderBy) {
         params.append('rating.orderBy', this.searchCriteria.rating.orderBy);
       }
-
       try {
         const response = await axios.get(`http://localhost:8080/players?${params.toString()}`);
         this.players = response.data;  // 서버로부터 받은 데이터를 players 배열에 저장
       } catch (error) {
         console.error('Error fetching players:', error);
+      }
+    },
+    async openRecruitModal(player) {
+      this.selectedPlayer = player;
+      this.showModal = true;
+      await this.fetchLeagues();
+    },
+    closeModal() {
+      this.showModal = false;
+      this.selectedLeague = '';
+      this.selectedTeam = '';
+      this.teams = [];
+    },
+    async fetchLeagues() {
+      try {
+        const response = await axios.get(`http://localhost:8080/leagues`);
+        this.leagues = response.data;
+      } catch (error) {
+        console.error('Error fetching leagues:', error);
+      }
+    },
+    async fetchTeams() {
+      if (this.selectedLeague !== '') {
+        try {
+          const response = await axios.get(`http://localhost:8080/leagues/${this.selectedLeague}`);
+          this.teams = response.data;
+        } catch (error) {
+          console.error('Error fetching teams:', error);
+        }
+      }
+    },
+    async recruitPlayer() {
+      try {
+        console.log("selectedTeam " + this.selectedTeam)
+        await axios.post(`http://localhost:8080/teams/${this.selectedTeam.teamId}/scout`, {
+          playerIds: [this.selectedPlayer.playerId]
+        });
+        alert('선수 영입 성공!');
+        this.closeModal();
+        // 필요한 경우 추가적인 처리를 여기에 작성
+      } catch (error) {
+        console.error('Error recruiting player:', error);
+        alert('선수 영입 실패!');
       }
     },
     redirectToPlayerDetails(playerId) {
@@ -194,10 +282,27 @@ export default {
 </script>
 
 <style scoped>
-.card-header {
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+}
+
+.modal-dialog {
+  max-width: 500px;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .cursor-pointer {
