@@ -4,6 +4,7 @@ import PlayerSearch from '../views/PlayerSearch.vue'
 import PlayerDetails from "../views/PlayerDetails.vue"
 import League from "../views/League.vue";
 import TeamDetails from "@/views/TeamDetails.vue";
+import PlayerRegister from "@/views/PlayerRegister.vue";
 
 const routes = [
 
@@ -17,6 +18,12 @@ const routes = [
     path: '/player-search',
     name: 'PlayerSearch',
     component: PlayerSearch
+  },
+
+  {
+    path: '/player-register',
+    name: 'PlayerRegister',
+    component: PlayerRegister
   },
 
   {
