@@ -22,9 +22,9 @@ class PlayerFacade(
 
         player.edit(
             request.name,
-            request.position,
+            request.positions,
             request.stat,
-            request.trait,
+            request.traits,
             request.mainFoot
         )
 
