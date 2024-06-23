@@ -208,6 +208,7 @@ export default {
         console.log('호출');
         await axios.post('http://localhost:8080/players', this.player);
         alert('선수 등록 성공!');
+        window.location.reload()
         // Reset form or handle post-registration logic
       } catch (error) {
         console.error('Error registering player:', error);
