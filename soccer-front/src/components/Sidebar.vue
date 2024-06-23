@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white" style="width: 280px;">
+  <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-dark text-white">
     <router-link to="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <i class="bi bi-bootstrap-fill me-2"></i>
       <span class="fs-4">Sidebar</span>
@@ -99,7 +99,8 @@ export default {
 
 <style scoped>
 #sidebar {
-  height: 100vh;
+  height: 100vh; /* 사이드바가 화면 전체 높이를 차지하도록 설정 */
+  width: 280px;
 }
 
 .nav-pills .nav-link {
