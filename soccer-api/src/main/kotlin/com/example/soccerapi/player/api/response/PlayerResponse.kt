@@ -5,9 +5,9 @@ import com.example.soccerdomain.player.domain.*
 data class PlayerResponse(
     val playerId: Long,
     val name: String,
-    val position: Set<Position>,
+    val positions: Set<Position>,
     val stat: Stat,
-    val trait: Set<Trait>,
+    val traits: Set<Trait>,
     val mainFoot: MainFoot,
     val rating: Int
 ) {

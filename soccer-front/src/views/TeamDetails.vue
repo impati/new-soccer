@@ -81,8 +81,8 @@
             <td>
               <a @click.prevent="redirectToPlayerDetails(player.playerId)">{{ player.name }}</a>
             </td>
-            <td>{{ player.position.join(', ') }}</td>
-            <td>{{ player.trait.join(', ') }}</td>
+            <td>{{ player.positions.join(', ') }}</td>
+            <td>{{ player.traits.join(', ') }}</td>
             <td>{{ player.mainFoot }}</td>
             <td>{{ player.rating }}</td>
           </tr>
@@ -148,7 +148,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="player in subPlayers" :key="player.playerId">
-                  <td>{{ player.position.join(', ') }}</td>
+                  <td>{{ player.positions.join(', ') }}</td>
                   <td>{{ player.name }}</td>
                   <td>
                     <button class="btn btn-arrow blue-arrow" @click="moveToStarters(player)">⬆️</button>
@@ -219,7 +219,7 @@
                 </thead>
                 <tbody>
                 <tr v-for="player in subPlayers" :key="player.playerId">
-                  <td>{{ player.position.join(', ') }}</td>
+                  <td>{{ player.positions.join(', ') }}</td>
                   <td>{{ player.name }}</td>
                   <td>
                     <button class="btn btn-arrow blue-arrow" @click="moveToStarters(player)">⬆️</button>

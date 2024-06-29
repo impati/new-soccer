@@ -5,6 +5,7 @@ import PlayerDetails from "../views/PlayerDetails.vue"
 import League from "../views/League.vue";
 import TeamDetails from "@/views/TeamDetails.vue";
 import PlayerRegister from "@/views/PlayerRegister.vue";
+import PlayerEdit from "@/views/PlayerEdit.vue";
 
 const routes = [
 
@@ -31,6 +32,13 @@ const routes = [
     name: 'PlayerDetails',
     props: route => ({playerId: Number(route.params.playerId)}),
     component: PlayerDetails
+  },
+
+  {
+    path: '/edit/players/:playerId',
+    name: 'PlayerEdit',
+    props: route => ({playerId: Number(route.params.playerId)}),
+    component: PlayerEdit
   },
 
   {

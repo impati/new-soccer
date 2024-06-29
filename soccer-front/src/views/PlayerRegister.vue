@@ -4,7 +4,7 @@
       <div class="col-lg-10">
         <!-- Registration Form -->
         <div class="bg-light p-5 rounded shadow-sm">
-          <div class="mb-4">
+          <div class="mb-4 card-header">
             <h2>선수 등록</h2>
           </div>
           <div class="card-body">
@@ -55,78 +55,101 @@
               </div>
 
               <div class="form-group row mb-3">
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>기본</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.basic" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.basic[key]" min="0" max="100"></td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>기본</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.basic" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.basic[key]" min="0"
+                                 max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>피지컬</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.physical" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.physical[key]" min="0" max="100"></td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>피지컬</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.physical" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.physical[key]" min="0"
+                                 max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>패스</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.pass" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.pass[key]" min="0" max="100"></td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>패스</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.pass" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.pass[key]" min="0"
+                                 max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>공격</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.forward" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.forward[key]" min="0" max="100"></td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>공격</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.forward" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.forward[key]" min="0"
+                                 max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>수비</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.defense" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.defense[key]" min="0" max="100"></td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>수비</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.defense" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.defense[key]" min="0"
+                                 max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="col-12 col-md-6 stat-section list-group-item">
-                  <h5>골키핑</h5>
-                  <table class="table table-striped mt-2">
-                    <tbody>
-                    <tr v-for="(value, key) in player.stat.goalKeeping" :key="key">
-                      <td><strong>{{ translateStat(key) }}</strong></td>
-                      <td class="text-end"><input type="number" class="form-control text-end"
-                                                  v-model="player.stat.goalKeeping[key]" min="0" max="100">
-                      </td>
-                    </tr>
-                    </tbody>
-                  </table>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="stat-section card">
+                    <div class="card-header"><h5>골키핑</h5></div>
+                    <table class="table table-striped mt-2">
+                      <tbody>
+                      <tr v-for="(value, key) in player.stat.goalKeeping" :key="key">
+                        <td><strong>{{ translateStat(key) }}</strong></td>
+                        <td class="text-end">
+                          <input type="number" class="form-control text-end" v-model="player.stat.goalKeeping[key]"
+                                 min="0" max="100">
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
 
@@ -134,8 +157,6 @@
                 <button type="submit" class="btn btn-primary">등록</button>
               </div>
             </form>
-
-
           </div>
         </div>
       </div>
@@ -206,10 +227,8 @@ export default {
     async registerPlayer() {
       try {
         console.log('호출');
-        await axios.post('http://localhost:8080/players', this.player);
-        alert('선수 등록 성공!');
-        window.location.reload()
-        // Reset form or handle post-registration logic
+        const response = await axios.post('http://localhost:8080/players', this.player);
+        await this.$router.push({name: 'PlayerDetails', params: {playerId: response.data.playerId}});
       } catch (error) {
         console.error('Error registering player:', error);
         alert('선수 등록 실패!');

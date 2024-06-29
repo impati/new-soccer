@@ -107,8 +107,8 @@
                 <td>
                   <a @click.prevent="redirectToPlayerDetails(player.playerId)" class="player-link">{{ player.name }}</a>
                 </td>
-                <td>{{ player.position.join(', ') }}</td>
-                <td>{{ player.trait.join(', ') }}</td>
+                <td>{{ player.positions.join(', ') }}</td>
+                <td>{{ player.traits.join(', ') }}</td>
                 <td>{{ player.mainFoot }}</td>
                 <td>{{ player.rating }}</td>
                 <td>
@@ -175,7 +175,7 @@ export default {
         teamName: '',
         mainFoot: '',
         traits: [],
-        position: '',
+        positions: '',
         rating: {
           value: '',
           operator: '',
