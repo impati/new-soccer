@@ -32,6 +32,13 @@ class Team(
         }
     }
 
+    fun release(players: List<Player>) {
+        for (player in players) {
+            player.leave(this)
+            this.player.remove(player)
+        }
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

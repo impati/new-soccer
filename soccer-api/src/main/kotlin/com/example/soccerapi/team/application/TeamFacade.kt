@@ -1,6 +1,7 @@
 package com.example.soccerapi.team.application
 
 import com.example.soccerapi.team.api.request.FormationRequest
+import com.example.soccerapi.team.api.request.ReleaseRequest
 import com.example.soccerapi.team.api.request.ScoutRequest
 import com.example.soccerapi.team.api.response.FormationResponse
 import com.example.soccerapi.team.api.response.TeamResponse
@@ -72,5 +73,12 @@ class TeamFacade(
 
     fun deleteFormation(formationId: Long) {
         formationRepository.deleteById(formationId)
+    }
+
+    fun release(teamId: Long, request: ReleaseRequest) {
+        val team = teamRepository.findById(teamId).orElseThrow()
+        val players = playerRepository.findPlayerByIdIn(request.playerIds)
+
+        team.release(players)
     }
 }
