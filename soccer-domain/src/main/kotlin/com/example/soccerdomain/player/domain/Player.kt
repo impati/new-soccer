@@ -46,6 +46,11 @@ class Player(
         this.team = team
     }
 
+    fun leave(team: Team) {
+        require(this.team == team) { "떠날 수 없는 팀입니다." }
+        this.team = null
+    }
+
     fun edit(name: String, position: Set<Position>, stat: Stat, trait: Set<Trait>, mainFoot: MainFoot) {
         this.name = name
         this.position = position

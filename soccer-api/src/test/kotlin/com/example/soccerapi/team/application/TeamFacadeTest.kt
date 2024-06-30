@@ -2,6 +2,7 @@ package com.example.soccerapi.team.application
 
 import com.example.soccerapi.team.api.request.FormationElementRequest
 import com.example.soccerapi.team.api.request.FormationRequest
+import com.example.soccerapi.team.api.request.ReleaseRequest
 import com.example.soccerapi.team.api.request.ScoutRequest
 import com.example.soccerdomain.player.domain.*
 import com.example.soccerdomain.team.domain.League
@@ -45,6 +46,29 @@ class TeamFacadeTest @Autowired constructor(
 
         assertThat(team.player).hasSize(1)
         assertThat(player.team).isEqualTo(team)
+    }
+
+    @Test
+    fun release() {
+        val team = teamRepository.save(Team(name = "test1", league = League.LEAGUE_1))
+        val player = playerRepository.save(
+            Player(
+                name = "player1",
+                position = setOf(Position.CAM, Position.CDM),
+                stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
+                trait = setOf(Trait.HEADER),
+                mainFoot = MainFoot.BOTH
+            )
+        )
+        team.player.add(player)
+        player.join(team)
+        clearPersistentContext()
+
+        teamFacade.release(team.id!!, ReleaseRequest(listOf(player.id!!)))
+
+        clearPersistentContext()
+        assertThat(teamRepository.findById(team.id!!).orElseThrow().player).isEmpty()
+        assertThat(playerRepository.findById(player.id!!).orElseThrow().team).isNull()
     }
 
     @Test
@@ -97,8 +121,7 @@ class TeamFacadeTest @Autowired constructor(
         val formation = Formation("formation1", team)
         formation.addFormationElement(FormationElement(Position.CM, player1, formation))
         formationRepository.save(formation)
-        entityManager.flush()
-        entityManager.clear()
+        clearPersistentContext()
         val request = FormationRequest(
             "formation2",
             listOf(FormationElementRequest(Position.RB, player2.id!!))
@@ -111,6 +134,11 @@ class TeamFacadeTest @Autowired constructor(
             .hasSize(1)
             .extracting("playerName", "position")
             .contains(tuple("player2", Position.RB))
+    }
+
+    private fun clearPersistentContext() {
+        entityManager.flush()
+        entityManager.clear()
     }
 }
 
