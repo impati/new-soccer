@@ -14,8 +14,8 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <div class="row">
-                  <div class="col-2"><strong>ID:</strong></div>
-                  <div class="col-10">{{ player.playerId }}</div>
+                  <div class="col-2"><strong>team:</strong></div>
+                  <div class="col-10" v-if="player.teamName">{{ player.teamName }}</div>
                 </div>
               </li>
               <li class="list-group-item">
