@@ -70,14 +70,11 @@
             <th>특성</th>
             <th>주발</th>
             <th>레이팅</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
-          <tr
-              v-for="player in team.players"
-              :key="player.playerId"
-              class="cursor-pointer"
-          >
+          <tr v-for="player in team.players" :key="player.playerId" class="cursor-pointer">
             <td>
               <a @click.prevent="redirectToPlayerDetails(player.playerId)">{{ player.name }}</a>
             </td>
@@ -85,6 +82,9 @@
             <td>{{ player.traits.join(', ') }}</td>
             <td>{{ player.mainFoot }}</td>
             <td>{{ player.rating }}</td>
+            <td>
+              <button @click="releasePlayer(player)" class="btn btn-danger btn-sm"> 방출</button>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -358,6 +358,14 @@ export default {
     },
     refreshData() {
       window.location.reload()
+    },
+    async releasePlayer(player) {
+      if (confirm(`정말로 ${player.name} 선수를 방출하시겠습니까?`)) {
+        await axios.post(`http://localhost:8080/teams/${this.teamId}/release`, {
+          playerIds: [player.playerId]
+        });
+        this.refreshData();
+      }
     }
   },
 };
