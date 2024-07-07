@@ -9,6 +9,7 @@ class TeamRecord(
 
     val pass: Int = 0,
 
+
     val save: Int = 0,
 
     val foul: Int = 0,
@@ -36,4 +37,11 @@ class TeamRecord(
     @Id
     val id: Long? = null,
 ) {
+
+    companion object {
+
+        fun of(game: Game, team: Team): TeamRecord {
+            return TeamRecord(game = game, team = team)
+        }
+    }
 }

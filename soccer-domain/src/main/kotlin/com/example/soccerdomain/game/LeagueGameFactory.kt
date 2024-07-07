@@ -34,7 +34,7 @@ class LeagueGameFactory(
     }
 
     private fun createLeagueGameBy(league: League, season: Int, round: Int, home: Team, away: Team): LeagueGame {
-        val leagueGame = LeagueGame(league, season, round + 1);
+        val leagueGame = LeagueGame.of(league, season, round)
         leagueGame.addTeam(home, away)
         return leagueGame;
     }

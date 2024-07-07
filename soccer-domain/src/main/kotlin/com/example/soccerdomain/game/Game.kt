@@ -8,10 +8,8 @@ import jakarta.persistence.*
 @DiscriminatorColumn
 open class Game(
 
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id")
     @Id
     val id: Long? = null
-) {
-}
+)
