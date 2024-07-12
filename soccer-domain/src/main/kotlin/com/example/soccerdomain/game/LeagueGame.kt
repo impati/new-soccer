@@ -25,13 +25,6 @@ class LeagueGame(
     @Column(name = "round")
     val round: Int,
 
-    @Column(name = "status")
-    @Enumerated(EnumType.STRING)
-    val status: LeagueGameStatus = LeagueGameStatus.BEFORE,
-
-    @Transient
-    val teams: MutableList<Team> = mutableListOf(),
-
     id: Long? = null,
 ) : Game() {
 

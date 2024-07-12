@@ -1,6 +1,5 @@
-package com.example.soccerdomain.game
+package com.example.soccerdomain.game.season
 
-import com.example.soccerdomain.game.season.SeasonStatus
 import jakarta.persistence.*
 import java.time.LocalDateTime
 

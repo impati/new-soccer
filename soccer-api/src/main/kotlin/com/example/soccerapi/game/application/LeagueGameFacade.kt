@@ -2,7 +2,7 @@ package com.example.soccerapi.game.application
 
 import com.example.soccerdomain.game.LeagueGameFactory
 import com.example.soccerdomain.game.LeagueGameRepository
-import com.example.soccerdomain.game.Season
+import com.example.soccerdomain.game.season.Season
 import com.example.soccerdomain.game.record.TeamRecord
 import com.example.soccerdomain.game.record.TeamRecordRepository
 import com.example.soccerdomain.game.season.SeasonRepository
