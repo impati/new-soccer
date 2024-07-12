@@ -1,23 +1,17 @@
-package com.example.soccerdomain.game
+package com.example.soccerdomain.game.league
 
-import com.example.soccerdomain.SoccerConfig
+import com.example.soccerdomain.support.DomainIntegrationTest
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
-import com.example.soccerdomain.team.domain.TeamRepository
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.boot.test.context.SpringBootTest
 
-
-@EnableAutoConfiguration
-@SpringBootTest(classes = [SoccerConfig::class])
 class LeagueGameFactoryTest @Autowired constructor(
-    val teamRepository: TeamRepository,
     val leagueGameFactory: LeagueGameFactory
-) {
+) : DomainIntegrationTest() {
+
 
     @Test
     @DisplayName("팀들이 서로 한 번씩 경기를 한다.")
@@ -35,11 +29,11 @@ class LeagueGameFactoryTest @Autowired constructor(
 
         val leagueGames = leagueGameFactory.create(season)
 
-        assertThat(leagueGames).hasSize((teamSize - 1) * (teamSize / 2))
+        Assertions.assertThat(leagueGames).hasSize((teamSize - 1) * (teamSize / 2))
         leagueGames
             .flatMap { it.teams }
             .groupingBy { it }.eachCount().mapValues { it.value }
             .values
-            .forEach { assertThat(it).isEqualTo(teamSize - 1) }
+            .forEach { Assertions.assertThat(it).isEqualTo(teamSize - 1) }
     }
 }

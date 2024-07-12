@@ -1,5 +1,6 @@
-package com.example.soccerdomain.game
+package com.example.soccerdomain.game.league
 
+import com.example.soccerdomain.game.Game
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
 import jakarta.persistence.*
