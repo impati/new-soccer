@@ -37,4 +37,7 @@ class ApiIntegrationTest {
 
     @Autowired
     lateinit var entityManager: EntityManager
+
+    @Autowired
+    lateinit var integrationHelper: IntegrationHelper
 }

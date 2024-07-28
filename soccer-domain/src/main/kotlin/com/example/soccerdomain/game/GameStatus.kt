@@ -4,5 +4,5 @@ enum class GameStatus {
 
     BEFORE,
     ING,
-    DONE
+    FINISHED
 }

@@ -11,13 +11,27 @@ open class Game(
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    val status: GameStatus = GameStatus.BEFORE,
+    var status: GameStatus = GameStatus.BEFORE,
 
-    @Transient
-    val teams: MutableList<Team> = mutableListOf(),
+    @OneToMany(mappedBy = "game", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val teams: MutableList<TeamOfGame> = mutableListOf(),
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id")
     @Id
     val id: Long? = null
-)
+) {
+
+    fun addTeam(home: Team, away: Team) {
+        this.teams.add(TeamOfGame(home, this))
+        this.teams.add(TeamOfGame(away, this))
+    }
+
+    fun finish() {
+        this.status = GameStatus.FINISHED
+    }
+
+    fun start() {
+        this.status = GameStatus.ING
+    }
+}

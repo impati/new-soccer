@@ -87,7 +87,7 @@ class PlayerCustomRepositoryImpl(private val queryFactory: JPAQueryFactory) : Pl
             return null
         }
 
-        return player.position.contains(position)
+        return player.positions.contains(position)
     }
 
     private fun anyMatchTrait(traits: List<Trait>?): BooleanExpression? {
@@ -98,7 +98,7 @@ class PlayerCustomRepositoryImpl(private val queryFactory: JPAQueryFactory) : Pl
 
         var combinedExpression: BooleanExpression? = null
         for (trait in traits) {
-            val currentExpression = player.trait.contains(trait)
+            val currentExpression = player.traits.contains(trait)
 
             combinedExpression = if (combinedExpression == null) {
                 currentExpression

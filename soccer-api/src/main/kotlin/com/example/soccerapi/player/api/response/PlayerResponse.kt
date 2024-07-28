@@ -20,9 +20,9 @@ data class PlayerResponse(
                 player.id!!,
                 player.name,
                 player.team?.name,
-                player.position,
+                player.positions,
                 player.stat,
-                player.trait,
+                player.traits,
                 player.mainFoot,
                 player.rating.value
             )

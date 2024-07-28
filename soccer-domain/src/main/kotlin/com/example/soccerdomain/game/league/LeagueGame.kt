@@ -2,7 +2,6 @@ package com.example.soccerdomain.game.league
 
 import com.example.soccerdomain.game.Game
 import com.example.soccerdomain.team.domain.League
-import com.example.soccerdomain.team.domain.Team
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -41,11 +40,6 @@ class LeagueGame(
                 round = round
             )
         }
-    }
-
-    fun addTeam(home: Team, away: Team) {
-        this.teams.add(home)
-        this.teams.add(away)
     }
 
     override fun equals(other: Any?): Boolean {

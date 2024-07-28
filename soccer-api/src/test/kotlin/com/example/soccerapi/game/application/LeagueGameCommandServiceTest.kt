@@ -1,20 +1,22 @@
 package com.example.soccerapi.game.application
 
+import com.example.soccerapi.game.api.GameRequest
 import com.example.soccerapi.support.ApiIntegrationTest
+import com.example.soccerdomain.game.season.Season
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
+import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.Assertions.assertThatCode
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.transaction.annotation.Transactional
 
 @Transactional
-class LeagueGameFacadeTest @Autowired constructor(
-    val leagueGameFacade: LeagueGameFacade
+class LeagueGameCommandServiceTest @Autowired constructor(
+    val leagueGameCommandService: LeagueGameCommandService,
+    val leagueGameQueryService: LeagueGameQueryService
 ) : ApiIntegrationTest() {
-
 
     @Test
     @DisplayName("1시즌을 시작한다.")
@@ -24,7 +26,7 @@ class LeagueGameFacadeTest @Autowired constructor(
         teamRepository.save(Team(league = League.LEAGUE_1, name = "C"))
         teamRepository.save(Team(league = League.LEAGUE_1, name = "D"))
 
-        leagueGameFacade.startNewSeason()
+        leagueGameCommandService.startNewSeason()
 
         val season = seasonRepository.findLastSeason().orElseThrow()
         val leagueGames = leagueGameRepository.findLeagueGameBySeason(season.value)
@@ -40,13 +42,13 @@ class LeagueGameFacadeTest @Autowired constructor(
         teamRepository.save(Team(league = League.LEAGUE_1, name = "B"))
         teamRepository.save(Team(league = League.LEAGUE_1, name = "C"))
         teamRepository.save(Team(league = League.LEAGUE_1, name = "D"))
-        leagueGameFacade.startNewSeason()
+        leagueGameCommandService.startNewSeason()
         val season = seasonRepository.findLastSeason().orElseThrow()
         season.doneSeason()
         entityManager.flush()
         entityManager.clear()
 
-        leagueGameFacade.startNewSeason()
+        leagueGameCommandService.startNewSeason()
 
         val season2 = seasonRepository.findLastSeason().orElseThrow()
         val leagueGames = leagueGameRepository.findLeagueGameBySeason(season2.value)
@@ -62,12 +64,31 @@ class LeagueGameFacadeTest @Autowired constructor(
         teamRepository.save(Team(league = League.LEAGUE_1, name = "B"))
         teamRepository.save(Team(league = League.LEAGUE_1, name = "C"))
         teamRepository.save(Team(league = League.LEAGUE_1, name = "D"))
-        leagueGameFacade.startNewSeason()
+        leagueGameCommandService.startNewSeason()
         entityManager.flush()
         entityManager.clear()
 
-        assertThatCode { (leagueGameFacade.startNewSeason()) }
+        Assertions.assertThatCode { (leagueGameCommandService.startNewSeason()) }
             .isInstanceOf(IllegalStateException::class.java)
             .hasMessage("새로운 시즌을 시작하기 위해서는 시즌이 완료 상태여야합니다.")
     }
+
+    @Test
+    @DisplayName("게임을 실행한다.")
+    fun runGame() {
+        val teamA = integrationHelper.createTeamWithPlayers()
+        val teamB = integrationHelper.createTeamWithPlayers()
+        leagueGameCommandService.startNewSeason()
+        val leagueGames = leagueGameQueryService.getLeagueGames(Season.START_SEASON)
+        val formationA = formationRepository.findByTeam(teamA).first()
+        val formationB = formationRepository.findByTeam(teamB).first()
+        val gameRequest = GameRequest(listOf(formationA.id!!, formationB.id!!))
+
+        val response = leagueGameCommandService.runGame(leagueGames[0].gameId, gameRequest)
+
+        assertThat(response).isNotNull
+        assertThat(response.game.id).isEqualTo(leagueGames.first().gameId)
+        println(response)
+    }
 }
+

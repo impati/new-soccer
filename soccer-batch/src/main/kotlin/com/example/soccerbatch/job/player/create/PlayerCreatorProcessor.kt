@@ -10,9 +10,9 @@ class PlayerCreatorProcessor : ItemProcessor<InputPlayer, Player> {
 
         return Player(
             name = item.name,
-            position = positions,
+            positions = positions,
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = trait,
+            traits = trait,
             mainFoot = MainFoot.valueOf(item.mainFoot)
         )
     }

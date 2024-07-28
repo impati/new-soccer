@@ -25,9 +25,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
     fun save() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
 
@@ -41,9 +41,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
     fun search1() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
         playerRepository.save(player)
@@ -58,9 +58,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
     fun search2() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
         val team = Team(
@@ -83,9 +83,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -93,9 +93,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1500)
             )
@@ -103,9 +103,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(2000)
             )
@@ -133,9 +133,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -156,9 +156,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -179,9 +179,9 @@ class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER, Trait.PASS_MASTER),
+                traits = setOf(Trait.HEADER, Trait.PASS_MASTER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )

@@ -27,9 +27,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -46,9 +46,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -69,9 +69,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -95,18 +95,18 @@ class TeamFacadeTest @Autowired constructor(
         val player1 = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
         val player2 = playerRepository.save(
             Player(
                 name = "player2",
-                position = setOf(Position.CF),
+                positions = setOf(Position.CF),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.MAJOR),
+                traits = setOf(Trait.MAJOR),
                 mainFoot = MainFoot.LEFT
             )
         )
