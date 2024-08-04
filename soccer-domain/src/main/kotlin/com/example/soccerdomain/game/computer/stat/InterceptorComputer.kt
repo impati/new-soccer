@@ -7,6 +7,7 @@ import com.example.soccerdomain.game.record.PlayerRecord
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
 @Component
 @Order(INTERCEPTOR)
@@ -20,10 +21,10 @@ class InterceptorComputer : IndividualStatComputer {
             minusElement -= opponentPlayer.player.stat.antiIntercept() * priority[opponentPlayer.position]!!
         }
 
-        interceptor += (minusElement / 100.0).roundToInt()
+        interceptor += (minusElement / 80.0).roundToInt()
         if (interceptor < 0) {
             interceptor = 0
         }
-        playerRecord.intercept = interceptor / 3
+        playerRecord.intercept = Random.nextInt(0, interceptor + 1) / 2
     }
 }

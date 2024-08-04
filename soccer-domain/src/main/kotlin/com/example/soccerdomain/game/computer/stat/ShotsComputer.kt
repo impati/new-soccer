@@ -7,23 +7,24 @@ import com.example.soccerdomain.game.record.PlayerRecord
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
 @Component
 @Order(SHOWS)
 class ShotsComputer : IndividualStatComputer {
 
     override fun compute(playerRecord: PlayerRecord, teammate: Teammate, opponent: Opponent) {
-        var shots = playerRecord.player.stat.shots()
+        var shots = playerRecord.player.stat.shots() // 100
         var minusElement = 0;
-        for (opponentPlayer in opponent.players) {
+        for (opponentPlayer in opponent.players) { // 11
             val priority = getOpponentPriority(playerRecord.player)
-            minusElement -= opponentPlayer.player.stat.antiShots() * priority[opponentPlayer.position]!!
+            minusElement += opponentPlayer.player.stat.antiShots() * priority[opponentPlayer.position]!!
         }
 
-        shots += (minusElement / 100.0).roundToInt()
+        shots -= (minusElement / 80.0).roundToInt()
         if (shots < 0) {
             shots = 0
         }
-        playerRecord.shots = shots / 4
+        playerRecord.shots = Random.nextInt(0, shots + 1) / 3
     }
 }

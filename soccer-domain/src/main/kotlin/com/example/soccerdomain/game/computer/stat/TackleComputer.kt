@@ -7,6 +7,7 @@ import com.example.soccerdomain.game.record.PlayerRecord
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 import kotlin.math.roundToInt
+import kotlin.random.Random
 
 @Component
 @Order(TACKLE)
@@ -20,10 +21,10 @@ class TackleComputer : IndividualStatComputer {
             minusElement -= opponentPlayer.player.stat.antiTackle() * priority[opponentPlayer.position]!!
         }
 
-        tackle += (minusElement / 100.0).roundToInt()
+        tackle += (minusElement / 60.0).roundToInt()
         if (tackle < 0) {
             tackle = 0
         }
-        playerRecord.tackle = tackle / 4
+        playerRecord.tackle = Random.nextInt(0, tackle + 1) / 2
     }
 }

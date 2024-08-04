@@ -14,8 +14,8 @@ class ShotsOnTargetComputer : IndividualStatComputer {
     override fun compute(playerRecord: PlayerRecord, teammate: Teammate, opponent: Opponent) {
         val inter = Random.nextInt(0, playerRecord.shots + 1)
 
-        for (i in 0..inter) {
-            if (Random.nextInt(0, playerRecord.player.stat.shotsOnTarget() + 1) > Random.nextInt(0, 50)) {
+        for (i in 1..inter) {
+            if (Random.nextInt(0, playerRecord.player.stat.shotsOnTarget() + 1) > Random.nextInt(30, 90)) {
                 playerRecord.shotsOnTarget++
             }
         }
