@@ -3,26 +3,29 @@ package com.example.soccerdomain.game.record
 import com.example.soccerdomain.game.Game
 import com.example.soccerdomain.team.domain.Team
 import jakarta.persistence.*
+import lombok.ToString
 
 @Entity
+@ToString
 class TeamRecord(
 
-    val pass: Int = 0,
+    var pass: Int = 0,
 
+    var save: Int = 0,
 
-    val save: Int = 0,
+    var foul: Int = 0,
 
-    val foul: Int = 0,
+    var freeKick: Int = 0,
 
-    val freeKick: Int = 0,
+    var cornerKick: Int = 0,
 
-    val cornerKick: Int = 0,
+    var shotsOnTarget: Int = 0,
 
-    val shotsOnTarget: Int = 0,
+    var shots: Int = 0,
 
-    val shots: Int = 0,
+    var ballPossession: Int = 0,
 
-    val ballPossession: Int = 0,
+    var score: Int = 0,
 
     @ManyToOne
     @JoinColumn(name = "game_id")
@@ -43,5 +46,29 @@ class TeamRecord(
         fun of(game: Game, team: Team): TeamRecord {
             return TeamRecord(game = game, team = team)
         }
+    }
+
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as TeamRecord
+
+        return id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return id?.hashCode() ?: 0
+    }
+
+    fun update(playerRecords: List<PlayerRecord>) {
+        this.pass = playerRecords.sumOf { it.pass }
+        this.save = playerRecords.sumOf { it.save }
+        this.foul = playerRecords.sumOf { it.foul }
+        this.freeKick = playerRecords.sumOf { it.freeKick }
+        this.cornerKick = playerRecords.sumOf { it.cornerKick }
+        this.shotsOnTarget = playerRecords.sumOf { it.shotsOnTarget }
+        this.shots = playerRecords.sumOf { it.shots }
     }
 }

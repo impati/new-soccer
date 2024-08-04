@@ -20,7 +20,10 @@ class Player(
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "player_positions", joinColumns = [JoinColumn(name = "player_id")])
     @Column(name = "position")
-    var position: Set<Position>,
+    var positions: Set<Position>,
+
+    @Transient
+    var position: Position? = null,
 
     @Embedded
     var stat: Stat,
@@ -29,7 +32,7 @@ class Player(
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "player_trait", joinColumns = [JoinColumn(name = "player_id")])
     @Column(name = "trait")
-    var trait: Set<Trait>,
+    var traits: Set<Trait>,
 
     @Enumerated(EnumType.STRING)
     var mainFoot: MainFoot,
@@ -51,11 +54,15 @@ class Player(
         this.team = null
     }
 
+    fun setParticipate(position: Position) {
+        this.position = position
+    }
+
     fun edit(name: String, position: Set<Position>, stat: Stat, trait: Set<Trait>, mainFoot: MainFoot) {
         this.name = name
-        this.position = position
+        this.positions = position
         this.stat = stat
-        this.trait = trait
+        this.traits = trait
         this.mainFoot = mainFoot
     }
 

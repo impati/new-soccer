@@ -1,8 +1,8 @@
 package com.example.soccerdomain.game
 
-enum class LeagueGameStatus {
+enum class GameStatus {
 
     BEFORE,
     ING,
-    DONE
+    FINISHED
 }

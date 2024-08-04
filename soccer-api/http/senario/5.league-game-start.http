@@ -1,0 +1,2 @@
+### 리그 시작
+POST http://localhost:8080/league/start

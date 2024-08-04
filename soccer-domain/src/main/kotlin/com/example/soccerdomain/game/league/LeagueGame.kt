@@ -1,7 +1,7 @@
-package com.example.soccerdomain.game
+package com.example.soccerdomain.game.league
 
+import com.example.soccerdomain.game.Game
 import com.example.soccerdomain.team.domain.League
-import com.example.soccerdomain.team.domain.Team
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
@@ -25,13 +25,6 @@ class LeagueGame(
     @Column(name = "round")
     val round: Int,
 
-    @Column(name = "status")
-    @Enumerated(EnumType.STRING)
-    val status: LeagueGameStatus = LeagueGameStatus.BEFORE,
-
-    @Transient
-    val teams: MutableList<Team> = mutableListOf(),
-
     id: Long? = null,
 ) : Game() {
 
@@ -47,11 +40,6 @@ class LeagueGame(
                 round = round
             )
         }
-    }
-
-    fun addTeam(home: Team, away: Team) {
-        this.teams.add(home)
-        this.teams.add(away)
     }
 
     override fun equals(other: Any?): Boolean {

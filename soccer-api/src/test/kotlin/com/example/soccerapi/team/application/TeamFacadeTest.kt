@@ -1,5 +1,6 @@
 package com.example.soccerapi.team.application
 
+import com.example.soccerapi.support.ApiIntegrationTest
 import com.example.soccerapi.team.api.request.FormationElementRequest
 import com.example.soccerapi.team.api.request.FormationRequest
 import com.example.soccerapi.team.api.request.ReleaseRequest
@@ -7,27 +8,18 @@ import com.example.soccerapi.team.api.request.ScoutRequest
 import com.example.soccerdomain.player.domain.*
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
-import com.example.soccerdomain.team.domain.TeamRepository
 import com.example.soccerdomain.team.domain.formation.Formation
 import com.example.soccerdomain.team.domain.formation.FormationElement
-import com.example.soccerdomain.team.domain.formation.FormationRepository
-import jakarta.persistence.EntityManager
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.groups.Tuple.tuple
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.transaction.annotation.Transactional
 
-@SpringBootTest
 @Transactional
 class TeamFacadeTest @Autowired constructor(
-    val teamRepository: TeamRepository,
-    val playerRepository: PlayerRepository,
-    val formationRepository: FormationRepository,
-    val entityManager: EntityManager,
     val teamFacade: TeamFacade
-) {
+) : ApiIntegrationTest() {
 
     @Test
     fun scout() {
@@ -35,9 +27,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -54,9 +46,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -77,9 +69,9 @@ class TeamFacadeTest @Autowired constructor(
         val player = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
@@ -103,18 +95,18 @@ class TeamFacadeTest @Autowired constructor(
         val player1 = playerRepository.save(
             Player(
                 name = "player1",
-                position = setOf(Position.CAM, Position.CDM),
+                positions = setOf(Position.CAM, Position.CDM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH
             )
         )
         val player2 = playerRepository.save(
             Player(
                 name = "player2",
-                position = setOf(Position.CF),
+                positions = setOf(Position.CF),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.MAJOR),
+                traits = setOf(Trait.MAJOR),
                 mainFoot = MainFoot.LEFT
             )
         )

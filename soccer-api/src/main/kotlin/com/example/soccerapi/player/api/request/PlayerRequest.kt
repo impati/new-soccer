@@ -14,9 +14,9 @@ data class PlayerRequest(
     fun toEntity(): Player {
         return Player(
             name = name,
-            position = positions,
+            positions = positions,
             stat = stat,
-            trait = traits,
+            traits = traits,
             mainFoot = mainFoot
         )
     }

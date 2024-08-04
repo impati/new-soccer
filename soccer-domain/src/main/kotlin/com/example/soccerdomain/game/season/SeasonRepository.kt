@@ -1,6 +1,5 @@
 package com.example.soccerdomain.game.season
 
-import com.example.soccerdomain.game.Season
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import java.util.*

@@ -1,28 +1,19 @@
 package com.example.soccerdomain.player.domain
 
-import com.example.soccerdomain.SoccerConfig
 import com.example.soccerdomain.common.search.NumberOperator
 import com.example.soccerdomain.common.search.OrderBy
 import com.example.soccerdomain.player.NumberSearchInput
 import com.example.soccerdomain.player.PlayerSearchInput
+import com.example.soccerdomain.support.DomainIntegrationTest
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
-import com.example.soccerdomain.team.domain.TeamRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
-import org.springframework.boot.test.context.SpringBootTest
 
 
-@EnableAutoConfiguration
-@SpringBootTest(classes = [SoccerConfig::class])
-class PlayerCustomRepositoryImplTest @Autowired constructor(
-    val playerRepository: PlayerRepository,
-    val teamRepository: TeamRepository
-) {
+class PlayerCustomRepositoryImplTestDomain : DomainIntegrationTest() {
 
     @AfterEach
     fun tearDown() {
@@ -34,9 +25,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
     fun save() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
 
@@ -50,9 +41,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
     fun search1() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
         playerRepository.save(player)
@@ -67,9 +58,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
     fun search2() {
         val player = Player(
             name = "tester",
-            position = setOf(Position.CAM),
+            positions = setOf(Position.CAM),
             stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-            trait = setOf(Trait.HEADER),
+            traits = setOf(Trait.HEADER),
             mainFoot = MainFoot.BOTH
         )
         val team = Team(
@@ -92,9 +83,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -102,9 +93,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1500)
             )
@@ -112,9 +103,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(2000)
             )
@@ -142,9 +133,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -165,9 +156,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER),
+                traits = setOf(Trait.HEADER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )
@@ -188,9 +179,9 @@ class PlayerCustomRepositoryImplTest @Autowired constructor(
         playerRepository.save(
             Player(
                 name = "tester",
-                position = setOf(Position.CAM),
+                positions = setOf(Position.CAM),
                 stat = Stat(Basic(), Physical(), Pass(), Forward(), Defense(), GoalKeeping()),
-                trait = setOf(Trait.HEADER, Trait.PASS_MASTER),
+                traits = setOf(Trait.HEADER, Trait.PASS_MASTER),
                 mainFoot = MainFoot.BOTH,
                 rating = Rating(1000)
             )

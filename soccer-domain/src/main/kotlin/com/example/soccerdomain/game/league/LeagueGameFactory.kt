@@ -1,4 +1,4 @@
-package com.example.soccerdomain.game
+package com.example.soccerdomain.game.league
 
 import com.example.soccerdomain.team.domain.League
 import com.example.soccerdomain.team.domain.Team
@@ -16,7 +16,7 @@ class LeagueGameFactory(
 
     fun create(league: League, season: Int): List<LeagueGame> {
         val teams = teamRepository.findTeamByLeague(league)
-        val leagueGames = mutableListOf<LeagueGame>();
+        val leagueGames = mutableListOf<LeagueGame>()
         val rotateTeams = teams.drop(1).toMutableList()
 
         for (round in 0 until teams.size - 1) {
