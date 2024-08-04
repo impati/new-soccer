@@ -1,4 +1,4 @@
-package com.example.soccerapi.game.api
+package com.example.soccerapi.game.api.response
 
 import com.example.soccerapi.team.api.response.TeamResponse
 import com.example.soccerdomain.game.GameStatus

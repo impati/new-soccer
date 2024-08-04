@@ -1,7 +1,7 @@
 package com.example.soccerapi.game.application
 
-import com.example.soccerapi.game.api.GameRequest
-import com.example.soccerapi.game.api.GameResponse
+import com.example.soccerapi.game.api.request.GameRequest
+import com.example.soccerapi.game.api.response.GameResultResponse
 import com.example.soccerdomain.game.GameFacade
 import com.example.soccerdomain.game.GameParameter
 import com.example.soccerdomain.game.GameRepository
@@ -38,11 +38,11 @@ class LeagueGameCommandService(
         throw IllegalStateException("새로운 시즌을 시작하기 위해서는 시즌이 완료 상태여야합니다.")
     }
 
-    fun runGame(gameId: Long, request: GameRequest): GameResponse {
+    fun runGame(gameId: Long, request: GameRequest): GameResultResponse {
         val leagueGame = gameRepository.findById(gameId).orElseThrow()
         val formations = formationRepository.findAllById(request.formationIds)
         val gameResult = gameFacade.runGame(GameParameter(leagueGame, formations))
-        return GameResponse.from(gameResult)
+        return GameResultResponse.from(gameResult)
     }
 
     private fun create(season: Int) {

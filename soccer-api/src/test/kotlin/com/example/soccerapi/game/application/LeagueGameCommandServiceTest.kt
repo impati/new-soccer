@@ -1,6 +1,6 @@
 package com.example.soccerapi.game.application
 
-import com.example.soccerapi.game.api.GameRequest
+import com.example.soccerapi.game.api.request.GameRequest
 import com.example.soccerapi.support.ApiIntegrationTest
 import com.example.soccerdomain.game.season.Season
 import com.example.soccerdomain.team.domain.League

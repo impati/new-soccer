@@ -1,6 +1,6 @@
 package com.example.soccerapi.game.application
 
-import com.example.soccerapi.game.api.LeagueGameResponse
+import com.example.soccerapi.game.api.response.LeagueGameResponse
 import com.example.soccerdomain.game.league.LeagueGameRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

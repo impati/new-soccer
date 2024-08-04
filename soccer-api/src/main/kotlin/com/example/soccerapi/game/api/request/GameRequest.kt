@@ -1,4 +1,4 @@
-package com.example.soccerapi.game.api
+package com.example.soccerapi.game.api.request
 
 import jakarta.validation.constraints.Size
 

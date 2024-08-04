@@ -1,5 +1,8 @@
 package com.example.soccerapi.game.api
 
+import com.example.soccerapi.game.api.request.GameRequest
+import com.example.soccerapi.game.api.response.GameResultResponse
+import com.example.soccerapi.game.api.response.LeagueGameResponse
 import com.example.soccerapi.game.application.LeagueGameCommandService
 import com.example.soccerapi.game.application.LeagueGameQueryService
 import jakarta.validation.Valid
@@ -22,7 +25,7 @@ class LeagueGameController(
     }
 
     @PostMapping("/league/games/{gameId}")
-    fun runLeagueGame(@PathVariable gameId: Long, @Valid @RequestBody request: GameRequest): GameResponse {
+    fun runLeagueGame(@PathVariable gameId: Long, @Valid @RequestBody request: GameRequest): GameResultResponse {
         return leagueGameCommandService.runGame(gameId, request)
     }
 }
