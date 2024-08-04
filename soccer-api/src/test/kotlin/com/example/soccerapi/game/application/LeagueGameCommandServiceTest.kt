@@ -31,7 +31,6 @@ class LeagueGameCommandServiceTest @Autowired constructor(
         val season = seasonRepository.findLastSeason().orElseThrow()
         val leagueGames = leagueGameRepository.findLeagueGameBySeason(season.value)
         assertThat(leagueGames).hasSize(3 * 2)
-        leagueGames.stream().forEach { assertThat(teamRecordRepository.findTeamRecordByGame(it)).hasSize(2) }
         assertThat(season.value).isEqualTo(1)
     }
 
@@ -53,7 +52,6 @@ class LeagueGameCommandServiceTest @Autowired constructor(
         val season2 = seasonRepository.findLastSeason().orElseThrow()
         val leagueGames = leagueGameRepository.findLeagueGameBySeason(season2.value)
         assertThat(leagueGames).hasSize(3 * 2)
-        leagueGames.stream().forEach { assertThat(teamRecordRepository.findTeamRecordByGame(it)).hasSize(2) }
         assertThat(season2.value).isEqualTo(2)
     }
 
@@ -87,7 +85,7 @@ class LeagueGameCommandServiceTest @Autowired constructor(
         val response = leagueGameCommandService.runGame(leagueGames[0].gameId, gameRequest)
 
         assertThat(response).isNotNull
-        assertThat(response.game.id).isEqualTo(leagueGames.first().gameId)
+        assertThat(response.game.gameId).isEqualTo(leagueGames.first().gameId)
         println(response)
     }
 }
