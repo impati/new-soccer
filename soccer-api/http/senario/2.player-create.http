@@ -1,0 +1,1197 @@
+### 선수 등록 1
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-LW",
+  "positions": [
+    "LW"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 2
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-ST-CF",
+  "positions": [
+    "ST",
+    "CF"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 3
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-RW",
+  "positions": [
+    "RW"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 4
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-RM",
+  "positions": [
+    "RM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 5
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-LM",
+  "positions": [
+    "LM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 6
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-CM",
+  "positions": [
+    "CM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 7
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-CDM",
+  "positions": [
+    "CDM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+
+### 선수 등록 8
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-RB",
+  "positions": [
+    "RB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 9
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-LB",
+  "positions": [
+    "LB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 10
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-CB",
+  "positions": [
+    "CB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 11
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-A-GK",
+  "positions": [
+    "GK"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+
+
+
+### 선수 등록 1
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-LW",
+  "positions": [
+    "LW"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 2
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-ST-CF",
+  "positions": [
+    "ST",
+    "CF"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 3
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-RW",
+  "positions": [
+    "RW"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 4
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-RM",
+  "positions": [
+    "RM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 5
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-LM",
+  "positions": [
+    "LM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 6
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-CM",
+  "positions": [
+    "CM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 7
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-CDM",
+  "positions": [
+    "CDM"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+
+### 선수 등록 8
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-RB",
+  "positions": [
+    "RB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 9
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-LB",
+  "positions": [
+    "LB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 10
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-CB",
+  "positions": [
+    "CB"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+### 선수 등록 11
+POST http://localhost:8080/players
+Content-Type:  application/json
+
+{
+  "name": "test-B-GK",
+  "positions": [
+    "GK"
+  ],
+  "stat": {
+    "basic": {
+      "positioning": 50,
+      "visualRange": 50,
+      "sense": 50
+    },
+    "physical": {
+      "acceleration": 50,
+      "speed": 50,
+      "physicalFight": 50,
+      "stamina": 50,
+      "activeness": 50,
+      "jump": 50,
+      "balance": 50
+    },
+    "pass": {
+      "ballControl": 50,
+      "crosses": 50,
+      "pass": 50,
+      "longPass": 50
+    },
+    "forward": {
+      "dribble": 50,
+      "goalDetermination": 50,
+      "midRangeShot": 50,
+      "shootPower": 50,
+      "heading": 50
+    },
+    "defense": {
+      "defense": 50,
+      "tackle": 50,
+      "intercepting": 50,
+      "slidingTackle": 50
+    },
+    "goalKeeping": {
+      "diving": 50,
+      "handling": 50,
+      "goalKick": 50,
+      "speedReaction": 50
+    }
+  },
+  "traits": [],
+  "mainFoot": "BOTH"
+}
+
+
+

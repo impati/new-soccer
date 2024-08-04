@@ -1,0 +1,107 @@
+### teamA 포메이션 등록
+POST http://localhost:8080/teams/1/formations
+Content-Type: application/json
+
+{
+  "name": "first",
+  "elements": [
+    {
+      "position": "LW",
+      "playerId": 1
+    },
+    {
+      "position": "ST",
+      "playerId": 2
+    },
+    {
+      "position": "RW",
+      "playerId": 3
+    },
+    {
+      "position": "RM",
+      "playerId": 4
+    },
+    {
+      "position": "LM",
+      "playerId": 5
+    },
+    {
+      "position": "CM",
+      "playerId": 6
+    },
+    {
+      "position": "CDM",
+      "playerId": 7
+    },
+    {
+      "position": "RB",
+      "playerId": 8
+    },
+    {
+      "position": "LB",
+      "playerId": 9
+    },
+    {
+      "position": "CB",
+      "playerId": 10
+    },
+    {
+      "position": "GK",
+      "playerId": 11
+    }
+  ]
+}
+
+### teamB 포메이션 등록
+POST http://localhost:8080/teams/2/formations
+Content-Type: application/json
+
+{
+  "name": "first",
+  "elements": [
+    {
+      "position": "LW",
+      "playerId": 12
+    },
+    {
+      "position": "ST",
+      "playerId": 13
+    },
+    {
+      "position": "RW",
+      "playerId": 14
+    },
+    {
+      "position": "RM",
+      "playerId": 15
+    },
+    {
+      "position": "LM",
+      "playerId": 16
+    },
+    {
+      "position": "CM",
+      "playerId": 17
+    },
+    {
+      "position": "CDM",
+      "playerId": 18
+    },
+    {
+      "position": "RB",
+      "playerId": 19
+    },
+    {
+      "position": "LB",
+      "playerId": 20
+    },
+    {
+      "position": "CB",
+      "playerId": 21
+    },
+    {
+      "position": "GK",
+      "playerId": 22
+    }
+  ]
+}

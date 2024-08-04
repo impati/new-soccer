@@ -1,0 +1,10 @@
+### 리그 게임 시작
+POST http://localhost:8080/league/games/1
+Content-Type: application/json
+
+{
+  "formationIds": [
+    1,
+    2
+  ]
+}
