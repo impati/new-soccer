@@ -27,6 +27,11 @@ open class Game(
         this.teams.add(TeamOfGame(away, this))
     }
 
+    fun isBeforeGame(): Boolean {
+        return this.status == GameStatus.BEFORE
+    }
+
+
     fun finish() {
         this.status = GameStatus.FINISHED
     }

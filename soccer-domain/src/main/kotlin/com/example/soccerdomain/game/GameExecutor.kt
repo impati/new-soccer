@@ -15,6 +15,8 @@ class GameExecutor(
 ) {
 
     fun execute(gameContext: GameContext): GameResult {
+        check(gameContext.game.isBeforeGame()) { "게임이 진행 중이거나 종료되었습니다." }
+
         gameContext.game.start()
 
         val gameRecords = running(gameContext)
